@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/08 21:10:15 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/08 21:29:17 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ $(O_DIR)/%.o: %.c
 
 all: title submodules $(NAME)
 	@echo "===================================="
-	@echo "Add the libT_engine.a to your Makefile,"
-	@echo " and the T_engine.h header to your includes..."
+	@echo "Add the libT_Engine.a to your Makefile,"
+	@echo " and the T_Engine.h header to your includes..."
 
 $(NAME): .mandatory
 	@echo "T-Engine compilation done..."
