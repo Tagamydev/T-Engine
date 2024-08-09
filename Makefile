@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 17:22:56 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 17:46:48 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ fclean: clean
 clean: .clean
 	@echo "objects removed!"
 
-.clean:
+.clean: .submodule-init
 	@echo "cleaning objects..."
 	@make -sC ./ft_math/ clean
 	@rm -f $(OBJS)
