@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:16:21 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/09 17:16:24 by samusanc         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:35:18 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 typedef struct s_color
 {
-	int		hex;
-	int		r;
-	int		g;
-	int		b;
-	float	alpha;
+	unsigned int		hex;
+	int			r;
+	int			g;
+	int			b;
+	float			alpha;
 }		t_color;
 
 t_color	color(char *name);
