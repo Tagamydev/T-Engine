@@ -1,6 +1,7 @@
 #ifndef T_ENGINE_H
 # define T_ENGINE_H
 # include <stdlib.h>
+# include "ft_math.h"
 # include "color.h"
 # include "point.h"
 # include "resolution.h"
