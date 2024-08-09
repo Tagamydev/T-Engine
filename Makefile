@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/08 21:29:17 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 17:22:56 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ COMMIT_D	:= $(shell date)
 COMMIT_U	:= ${USER}
 CFLAGS		= -Wall -Wextra -Werror
 INC			= -I./includes/
+INC			+= -I./ft_math/
 CC			= gcc $(CFLAGS)
 
 SRCS		= ./screen/screen.c
@@ -54,23 +55,22 @@ submodules: .submodule-init #.libft
 	@git submodule update --recursive --remote
 	@touch .submodule-init
 
-#.libft:
-#	@make -sC ./libft/ all
-#	@touch .libft
+.ft_math:
+	@make -sC ./ft_math/ all
+	@touch .ft_math
 
 #===================================================================================================================
 #									Git Submodule Workflow 4 ADD COMMIT and PUSH
 #===================================================================================================================
 
 add: fclean .submodule-init
-#	@make -sC ./libft/ add
-	@git pull
+	@-git pull
 	@git add .
 
 #===================================================================================================================
 #===================================================================================================================
 
-.mandatory: $(OBJS)
+.mandatory: .ft_math $(OBJS)
 	ar rcs $(NAME) $(OBJS) 
 	@touch .mandatory
 
@@ -78,19 +78,19 @@ re: fclean all
 
 fclean: clean
 	@echo "cleaning binaries..."
-#	@make -sC ./libft/ fclean
+	@make -sC ./ft_math/ fclean
 	@rm -f $(NAME)
 	@rm -rf .mandatory
 	@rm -rf .submodule-init
 	@rm -rf .clean
-	@rm -rf .libft
+	@rm -rf .ft_math
 
 clean: .clean
 	@echo "objects removed!"
 
 .clean:
 	@echo "cleaning objects..."
-#	@make -sC ./libft/ clean
+	@make -sC ./ft_math/ clean
 	@rm -f $(OBJS)
 	@rm -rf $(O_DIR)
 	@touch .clean
