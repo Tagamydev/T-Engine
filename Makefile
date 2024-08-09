@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 17:46:48 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 18:19:07 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ COMMIT_U	:= ${USER}
 CFLAGS		= -Wall -Wextra -Werror
 INC			= -I./includes/
 INC			+= -I./ft_math/
+INC			+= -I./ft_math/includes/
+
 CC			= gcc $(CFLAGS)
 
 SRCS		= ./screen/screen.c
