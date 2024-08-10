@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 18:19:07 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/10 22:17:15 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,17 @@ add: fclean .submodule-init
 	@-git pull
 	@git add .
 
+commit: add
+	@echo "" >> .TODO
+	@cp .TODO .TODO.tmp
+	sed -i '1s/^/$(COMMIT_D) by $(COMMIT_U)\n/' .TODO.tmp
+	echo "======================= end of git description" >> .TODO.tmp
+	git commit -F .TODO.tmp 
+	@rm -rf .TODO.tmp
+
+push: commit
+	git push
+
 #===================================================================================================================
 #===================================================================================================================
 
@@ -97,4 +108,4 @@ clean: .clean
 	@rm -rf $(O_DIR)
 	@touch .clean
 
-.PHONY: all title clean fclean re submodules add 
+.PHONY: all title clean fclean re submodules add commit push
