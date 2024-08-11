@@ -38,7 +38,7 @@ SUBMODLIB	= ./ft_math/libft_math.a
 
 # GCC WITH LIBS AND INCLUDES
 CFLAGS		= -Wall -Wextra -Werror
-CC			= gcc $(CFLAGS) $(INC) $(SUBMODLIB)
+CC			= gcc $(CFLAGS) $(INC)
 
 # SRCS
 SRCS		= ./screen/screen.c
@@ -100,7 +100,7 @@ push: commit
 
 #======================= MANDATORY AND BONUS =========================#
 
-.mandatory: $(OBJS)
+.mandatory: submodules $(OBJS)
 	ar rcs $(NAME) $(OBJS) $(SUBMODLIB)
 	@touch .mandatory
 
