@@ -13,20 +13,42 @@
 NAME		= libT_Engine.a
 COMMIT_D	:= $(shell date)
 COMMIT_U	:= ${USER}
-CFLAGS		= -Wall -Wextra -Werror
+
+# SUBMODULE CHECKLIST
+#	[] includes
+#	[] libraries
+#	[] all
+#	[] fclean
+#	[] clean
+
+#=============================== INCLUDES ===============================#
+
+# LOCAL INCLUDES
 INC			= -I./includes/
+# SUBMODULES INCLUDES
 INC			+= -I./ft_math/
 INC			+= -I./ft_math/includes/
 
-CC			= gcc $(CFLAGS)
+#============================== LIBRARIES ===============================#
 
+# SUBMODULES .a LIBRARIES
+SUBMODLIB	= ./ft_math/libft_math.a
+
+#================================= GCC ==================================#
+
+# GCC WITH LIBS AND INCLUDES
+CFLAGS		= -Wall -Wextra -Werror
+CC			= gcc $(CFLAGS) $(INC) $(SUBMODLIB)
+
+# SRCS
 SRCS		= ./screen/screen.c
+
 O_DIR		= ./objects/
 OBJS		= $(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 
 $(O_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	$(CC) $(INC) -g -c $< -o $(O_DIR)/$(<:.c=.o)
+	$(CC) -g -c $< -o $(O_DIR)/$(<:.c=.o)
 	@echo ""
 
 all: title submodules $(NAME)
@@ -45,11 +67,9 @@ title:
 	@echo "Github: https://github.com/Tagamydev/T-Engine"
 	@echo ""
 
-#===================================================================================================================
-#												Git Submodule Workflow
-#===================================================================================================================
+#============================= SUBMODULES =============================#
 
-submodules: .submodule-init #.libft
+submodules: .submodule-init .make_submodules
 	@echo "All submodules loaded..."
 
 .submodule-init:
@@ -57,13 +77,11 @@ submodules: .submodule-init #.libft
 	@git submodule update --recursive --remote
 	@touch .submodule-init
 
-.ft_math:
+.make_submodules: 
 	@make -sC ./ft_math/ all
-	@touch .ft_math
+	@touch .make_submodules
 
-#===================================================================================================================
-#									Git Submodule Workflow 4 ADD COMMIT and PUSH
-#===================================================================================================================
+#============================= GIT RULES ==============================#
 
 add: fclean .submodule-init
 	@-git pull
@@ -80,32 +98,37 @@ commit: add
 push: commit
 	git push
 
-#===================================================================================================================
-#===================================================================================================================
+#======================= MANDATORY AND BONUS =========================#
 
-.mandatory: .ft_math $(OBJS)
-	ar rcs $(NAME) $(OBJS) 
+.mandatory: $(OBJS)
+	ar rcs $(NAME) $(OBJS) $(SUBMODLIB)
 	@touch .mandatory
 
 re: fclean all
 
-fclean: clean
+fclean: clean submodule_fclean
 	@echo "cleaning binaries..."
-	@make -sC ./ft_math/ fclean
 	@rm -f $(NAME)
 	@rm -rf .mandatory
 	@rm -rf .submodule-init
+	@rm -rf .make_submodules
+	@rm -rf .submodule_clean
 	@rm -rf .clean
-	@rm -rf .ft_math
+
+submodule_fclean:
+	@make -sC ./ft_math/ fclean
 
 clean: .clean
 	@echo "objects removed!"
 
-.clean: .submodule-init
+.clean: .submodule-init .submodule_clean
 	@echo "cleaning objects..."
-	@make -sC ./ft_math/ clean
 	@rm -f $(OBJS)
 	@rm -rf $(O_DIR)
 	@touch .clean
 
-.PHONY: all title clean fclean re submodules add commit push
+.submodule_clean:
+	@make -sC ./ft_math/ clean
+	@touch .submodule_clean
+
+.PHONY: all clean fclean re title submodules submodule_fclean add commit push
