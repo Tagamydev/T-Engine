@@ -34,11 +34,12 @@ INC			+= -I./ft_math/includes/
 # SUBMODULES .a LIBRARIES
 SUBMODLIB	= ./ft_math/libft_math.a
 
+SUBMODLINK	= -L./ft_math/ -lft_math
 #================================= GCC ==================================#
 
 # GCC WITH LIBS AND INCLUDES
 CFLAGS		= -Wall -Wextra -Werror
-CC			= gcc $(CFLAGS) $(INC)
+CC			= gcc $(CFLAGS) $(INC) $(SUBMODLINK)
 
 # SRCS
 SRCS		= ./screen/screen.c
@@ -101,7 +102,13 @@ push: commit
 #======================= MANDATORY AND BONUS =========================#
 
 .mandatory: submodules $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(SUBMODLIB)
+	@rm -rf OBJ_TMP_FOLDER
+	@mkdir -p OBJ_TMP_FOLDER
+	@$(foreach EXE,$(SUBMODLIB), \
+		ar --output=OBJ_TMP_FOLDER -x $(EXE) ; \
+	)
+	ar rcs $(NAME) $(OBJS) ./OBJ_TMP_FOLDER/*.o
+	@rm -rf OBJ_TMP_FOLDER
 	@touch .mandatory
 
 re: fclean all
