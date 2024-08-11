@@ -13,6 +13,12 @@
 #ifndef COLOR_H
 # define COLOR_H
 
+typedef enum e_colors
+{
+	red,
+	blue
+}			t_colors;
+
 typedef struct s_color
 {
 	unsigned int		hex;
@@ -22,7 +28,7 @@ typedef struct s_color
 	float			alpha;
 }		t_color;
 
-t_color	color(char *name);
+t_color	color(t_colors name);
 t_color	colorFormRGB(int red, int green, int blue);
 t_color	colorFormHEX(int color);
 t_color	color_mix(t_color a, t_color b, float lerp);
