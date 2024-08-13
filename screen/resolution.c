@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   screen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 02:02:49 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/05 02:18:39 by samusanc         ###   ########.fr       */
+/*   Created: 2024/08/07 13:16:55 by samusanc          #+#    #+#             */
+/*   Updated: 2024/08/07 13:19:08 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RESOLUTION_H
-# define RESOLUTION_H
+#include "resolution.h"
 
-typedef struct s_resolution
+t_resolution	resolution(unsigned int width, unsigned int height)
 {
-	unsigned int	width;
-	unsigned int	height;
-}		t_resolution;
+	t_resolution	result;
 
-// set resolution by hand
-t_resolution	resolution(unsigned int width, unsigned int height);
-
-// set the resolution by aspect ratio
-t_resolution	setResByAR(char *aspect_ratio);
-
-#endif
+	result.width = width;
+	result.height = height;
+	return (result);
+}

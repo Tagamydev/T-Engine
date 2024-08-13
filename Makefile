@@ -44,6 +44,7 @@ CC			= gcc $(CFLAGS) $(INC) $(SUBMODLINK)
 # SRCS
 SRCS		= \
 			./screen/screen.c \
+			./screen/resolution.c \
 			./color/color.c \
 			./geometry/line.c \
 			./geometry/point.c 
