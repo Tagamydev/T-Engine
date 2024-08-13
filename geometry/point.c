@@ -12,6 +12,12 @@
 
 #include "point.h"
 
+t_point	colorPoint(t_point point, t_color color)
+{
+	point.color = color;
+	return (point);
+}
+
 t_point	point(float px, float py)
 {
 	t_point	result;
