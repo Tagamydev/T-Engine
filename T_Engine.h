@@ -4,6 +4,7 @@
 # include "ft_math.h"
 # include "color.h"
 # include "point.h"
+# include "normalize.h"
 # include "line.h"
 # include "resolution.h"
 # include "screen.h"

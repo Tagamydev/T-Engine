@@ -46,6 +46,7 @@ SRCS		= \
 			./screen/screen.c \
 			./screen/resolution.c \
 			./color/color.c \
+			./geometry/normalize.c \
 			./geometry/line.c \
 			./geometry/point.c 
 
