@@ -25,5 +25,6 @@ t_point	point(float px, float py)
 	result.px = px;
 	result.py = py;
 	result.pz = 0;
+	result.color = color(black);
 	return (result);
 }
