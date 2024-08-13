@@ -14,6 +14,6 @@
 # define NORMALIZE_H
 # include "point.h"
 
-t_point	normalize(float number);
+t_point	normalize(t_point point);
 
 #endif
