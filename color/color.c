@@ -40,8 +40,6 @@ t_color	colorFormRGBA(int red, int green, int blue, float alpha)
 
 t_color	color(t_colors name)
 {
-	t_color	result;
-
 	if (name == black || name == BLACK)
 		return (colorFormRGB(0, 0, 0));
 	if (name == white || name == WHITE)
@@ -52,5 +50,5 @@ t_color	color(t_colors name)
 		return (colorFormRGB(0, 255, 0));
 	if (name == blue || name == BLUE)
 		return (colorFormRGB(0, 0, 255));
-	return (result);
+	return (colorFormRGB(0, 0, 0));
 }
