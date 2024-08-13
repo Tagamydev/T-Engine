@@ -42,7 +42,11 @@ CFLAGS		= -Wall -Wextra -Werror
 CC			= gcc $(CFLAGS) $(INC) $(SUBMODLINK)
 
 # SRCS
-SRCS		= ./screen/screen.c
+SRCS		= \
+			./screen/screen.c \
+			./geometry/line.c \
+			./geometry/point.c 
+
 
 O_DIR		= ./objects/
 OBJS		= $(addprefix $(O_DIR)/, $(SRCS:.c=.o))
