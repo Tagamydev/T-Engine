@@ -25,7 +25,7 @@ typedef struct s_point
 // point is a 2d representation of a vector
 t_point	point(float px, float py);
 
-t_point	colorPoint(float px, float py, t_color color);
+t_point	colorPoint(t_point point, t_color color);
 
 t_point	vector(float px, float py, float pz);
 
