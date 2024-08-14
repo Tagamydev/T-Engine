@@ -12,7 +12,7 @@
 
 #include "point.h"
 
-t_point	colorPoint(t_point point, t_color color)
+t_point	color_point(t_point point, t_color color)
 {
 	point.color = color;
 	return (point);
