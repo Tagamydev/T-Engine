@@ -12,7 +12,7 @@
 
 #include "screen.h"
 
-t_screen	*newScreen(t_resolution resolution)
+t_screen	*new_screen(t_resolution resolution)
 {
 	(void)resolution;
 	printf("test new Screen funtion\n");

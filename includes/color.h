@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:16:21 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/09 18:35:18 by samusanc         ###   ########.fr       */
+/*   Updated: 2024/08/14 15:17:47 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct s_color
 }		t_color;
 
 t_color	color(t_colors name);
-t_color	colorFormRGB(int red, int green, int blue);
-t_color	colorFormRGBA(int red, int green, int blue, float alpha);
-t_color	colorFormHEX(int color);
-t_color	colorMix(t_color a, t_color b, float lerp);
+t_color	color_form_rgb(int red, int green, int blue);
+t_color	color_form_rgba(int red, int green, int blue, float alpha);
+t_color	color_form_hex(int color);
+t_color	color_mix(t_color a, t_color b, float lerp);
 
 #endif

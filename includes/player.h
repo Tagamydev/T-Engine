@@ -29,7 +29,7 @@ typedef struct s_player
 }		t_player;
 
 // Player Constructor
-t_player	*newPlayer(t_camera *camera);
-void		freePlayer(t_player *player);
+t_player	*new_player(t_camera *camera);
+void		free_player(t_player *player);
 
 #endif

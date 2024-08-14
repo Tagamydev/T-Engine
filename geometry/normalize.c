@@ -19,7 +19,7 @@ t_point	normalize(t_point point)
 	float	inv_sqr;
 
 	result = point;
-	inv_sqr = Q_rsqrt((point.px * point.px) + (point.py * point.py) + (point.pz * point.pz));
+	inv_sqr = q_rsqrt((point.px * point.px) + (point.py * point.py) + (point.pz * point.pz));
 	result.px = point.px * inv_sqr;
 	result.py = point.py * inv_sqr;
 	result.pz = point.pz * inv_sqr;

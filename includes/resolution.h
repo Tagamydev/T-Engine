@@ -23,6 +23,6 @@ typedef struct s_resolution
 t_resolution	resolution(unsigned int width, unsigned int height);
 
 // set the resolution by aspect ratio
-t_resolution	setResByAR(char *aspect_ratio);
+t_resolution	set_res_by_a_r(char *aspect_ratio);
 
 #endif

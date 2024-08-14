@@ -29,7 +29,7 @@ typedef struct s_npc
 }		t_npc;
 
 // npc Constructor
-t_npc		*newNpc(void *model, t_point pos, float angle);
-void		freeNpc(t_npc *npc);
+t_npc		*new_npc(void *model, t_point pos, float angle);
+void		free_npc(t_npc *npc);
 
 #endif

@@ -23,7 +23,7 @@ typedef struct s_camera
 	t_screen		*screen;
 }		t_camera;
 
-t_camera	*newCamera(t_point pos, float angle, float fov, t_screen *screen);
-void		freeCamera(t_camera *cam);
+t_camera	*new_camera(t_point pos, float angle, float fov, t_screen *screen);
+void		free_camera(t_camera *cam);
 
 #endif

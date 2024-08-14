@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.c                                           :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 13:16:55 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/07 13:19:08 by samusanc         ###   ########.fr       */
+/*   Updated: 2024/08/14 15:09:24 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
-t_color	colorFormRGB(int red, int green, int blue)
+t_color	color_form_rgb(int red, int green, int blue)
 {
 	t_color	result;
 
@@ -24,7 +24,7 @@ t_color	colorFormRGB(int red, int green, int blue)
 	return (result);
 }
 
-t_color	colorFormRGBA(int red, int green, int blue, float alpha)
+t_color	color_form_rgba(int red, int green, int blue, float alpha)
 {
 	t_color	result;
 	int		alpha_val;
@@ -41,14 +41,14 @@ t_color	colorFormRGBA(int red, int green, int blue, float alpha)
 t_color	color(t_colors name)
 {
 	if (name == black || name == BLACK)
-		return (colorFormRGB(0, 0, 0));
+		return (color_form_rgb(0, 0, 0));
 	if (name == white || name == WHITE)
-		return (colorFormRGB(255, 255, 255));
+		return (color_form_rgb(255, 255, 255));
 	if (name == red || name == RED)
-		return (colorFormRGB(255, 0, 0));
+		return (color_form_rgb(255, 0, 0));
 	if (name == green || name == GREEN)
-		return (colorFormRGB(0, 255, 0));
+		return (color_form_rgb(0, 255, 0));
 	if (name == blue || name == BLUE)
-		return (colorFormRGB(0, 0, 255));
-	return (colorFormRGB(0, 0, 0));
+		return (color_form_rgb(0, 0, 255));
+	return (color_form_rgb(0, 0, 0));
 }

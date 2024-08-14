@@ -26,7 +26,7 @@ typedef struct s_screen
 	t_resolution	resolution;
 }		t_screen;
 
-t_screen	*newScreen(t_resolution resolution);
-void		*freeScreen(t_screen *screen);
+t_screen	*new_screen(t_resolution resolution);
+void		*free_screen(t_screen *screen);
 
 #endif
