@@ -41,14 +41,14 @@ t_color	color_from_rgba(int red, int green, int blue, float alpha)
 t_color	color(t_colors name)
 {
 	if (name == black || name == BLACK)
-		return (color_form_rgb(0, 0, 0));
+		return (color_from_rgb(0, 0, 0));
 	if (name == white || name == WHITE)
-		return (color_form_rgb(255, 255, 255));
+		return (color_from_rgb(255, 255, 255));
 	if (name == red || name == RED)
-		return (color_form_rgb(255, 0, 0));
+		return (color_from_rgb(255, 0, 0));
 	if (name == green || name == GREEN)
-		return (color_form_rgb(0, 255, 0));
+		return (color_from_rgb(0, 255, 0));
 	if (name == blue || name == BLUE)
-		return (color_form_rgb(0, 0, 255));
-	return (color_form_rgb(0, 0, 0));
+		return (color_from_rgb(0, 0, 255));
+	return (color_from_rgb(0, 0, 0));
 }
