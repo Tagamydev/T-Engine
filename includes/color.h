@@ -41,9 +41,9 @@ typedef struct s_color
 }		t_color;
 
 t_color	color(t_colors name);
-t_color	color_form_rgb(int red, int green, int blue);
-t_color	color_form_rgba(int red, int green, int blue, float alpha);
-t_color	color_form_hex(int color);
+t_color	color_from_rgb(int red, int green, int blue);
+t_color	color_from_rgba(int red, int green, int blue, float alpha);
+t_color	color_from_hex(int color);
 t_color	color_mix(t_color a, t_color b, float lerp);
 
 #endif

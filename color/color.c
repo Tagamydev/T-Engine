@@ -12,7 +12,7 @@
 
 #include "color.h"
 
-t_color	color_form_rgb(int red, int green, int blue)
+t_color	color_from_rgb(int red, int green, int blue)
 {
 	t_color	result;
 
@@ -24,7 +24,7 @@ t_color	color_form_rgb(int red, int green, int blue)
 	return (result);
 }
 
-t_color	color_form_rgba(int red, int green, int blue, float alpha)
+t_color	color_from_rgba(int red, int green, int blue, float alpha)
 {
 	t_color	result;
 	int		alpha_val;
