@@ -38,6 +38,22 @@ t_color	color_from_rgba(int red, int green, int blue, float alpha)
 	return (result);
 }
 
+int	linear_mix(int c1, int c2, float mix)
+{
+	return (c1 * (1 - mix) + c2 * mix);
+}
+
+t_color	color_mix(t_color a, t_color b, float lerp)
+{
+	t_color	result;
+
+	result = color_from_rgb(
+	linear_mix(a.r, b.r, lerp), 
+	linear_mix(a.g, b.g, lerp), 
+	linear_mix(a.b, b.b, lerp));
+	return (result);
+}
+
 t_color	color(t_colors name)
 {
 	if (name == black || name == BLACK)
